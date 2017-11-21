@@ -7,7 +7,7 @@
 
   <body>
     <h1>Flight delay prediction system</h1>
-    <form action = "http://localhost:5000/result" method = "POST" id="flight">
+    <form action='/result' method = "POST" id="flight">
     <p>Origin
         <select name="ORIGIN" form="flight">
             {% for code in codes %}
