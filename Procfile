@@ -1,1 +1,1 @@
-web: python run.py -p $PORT
+worker: python run.py  --log-file -
