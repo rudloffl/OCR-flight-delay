@@ -6,7 +6,6 @@ astroid==1.5.3
 astropy==2.0.2
 Babel==2.5.0
 backports.shutil-get-terminal-size==1.0.0
-basemap==1.0.7
 beautifulsoup4==4.6.0
 bitarray==0.8.1
 bkcharts==0.2
