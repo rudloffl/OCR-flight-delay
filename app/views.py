@@ -15,7 +15,7 @@ now = datetime.datetime.now()
 predictioneng = delaypredict.Predictioneng()
 
 @app.route('/')
-@app.route('/index')
+#@app.route('/index')
 def index():
     return render_template('index.html',
                            codes=sorted(predictioneng.airportsavail().keys()),
