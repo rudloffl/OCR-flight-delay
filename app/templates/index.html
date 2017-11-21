@@ -2,13 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Flight delay recommendation system</title>
+    <title>Flight delay prediction system</title>
   </head>
 
   <body>
-    <h1>Flight delay recommendation system</h1>
-    <h2>Origin</h2>
-        <select id="ORIGIN">
+    <h1>Flight delay prediction system</h1>
+    <form action = "http://localhost:5000/result" method = "POST" id="flight">
+    <p>Origin
+        <select name="ORIGIN" form="flight">
             {% for code in codes %}
             {% if code == 'ABE' %}
                 <option  value={{code}} selected>{{ '{} - {}'.format(code, airports[code]) }}  </option> 
@@ -17,8 +18,9 @@
             {% endif %}
             {% endfor %}
         </select>
-    <h2>Destination</h2>
-        <select id="DEST">
+    </p>
+    <p>Destination
+        <select name="DEST" form="flight">
             {% for code in codes %}
             {% if code == 'ABI' %}
                 <option  value={{code}} selected>{{ '{} - {}'.format(code, airports[code]) }}  </option> 
@@ -27,11 +29,13 @@
             {% endif %}
             {% endfor %}
         </select>
-    <h2>Flight date</h2>
-    <input type="date" name="date" value={{ currentdate }}>
-
-    <h2>Time of the day</h2>
-    <select id="HOUR">
+    </p>
+    <p>Flight date
+    <input type="date" name="DATE" value={{ currentdate }}>
+    </p>
+    
+    <p>Time of the day
+    <select name="HOUR" form="flight">
             {% for hour in range(24) %}
             {% if hour == currenthour %}
                 <option  value={{hour}} selected> {{ hour }}  </option> 
@@ -40,22 +44,12 @@
             {% endif %}
             {% endfor %}
     </select>
-    <h1> </h1>
-    <input type="submit" value = "Submit !">
+    </p>
+    <input type="submit" value = "Submit !"  form="flight">
+    </form>
 
-    <h1>Flight delay results from A to B at 13h00</h1>
 
-    <table border = "1" align="center">
-        <tr bgcolor="grey">
-            <td>Carrier</td><td>Predicted delay</td><td>Existing offer</td>
-        </tr>
-        <tr>
-            <td>Delta</td><td>5 min delay</td><td>Yes</td>
-        </tr>
-        <tr>
-            <td>Southwest</td><td>10 minutes early</td><td>No</td>
-        </tr>
-    </table> 
+
 
 
   </body>

@@ -22,9 +22,18 @@ class Predictioneng():
         self.possibletripdict = load_obj('possibletripdict')
         
     
-    def predict(self, carrier, airports):
-        pass
+    def predictflight(self, carrier, airports):
+        return 0
     
+    def predicttable(self, airports):
+        table = []
+        for carrier in sorted(self.carrierdict.keys()): 
+            carriername = self.carrierdict[carrier]
+            delay = self.predictflight(carrier, airports)
+            available = self.existingoffer(carrier, airports)
+            table.append([carriername, delay, available])
+        return table
+        
     def airportsavail(self):
         return self. airportdict
     
@@ -33,7 +42,10 @@ class Predictioneng():
     
     def airportsname(self, code):
         return self. airportdict[code]
+    
+    def existingoffer(self, carrier, airports):
+        return True if carrier in self.possibletripdict.get(airports,'NOPE') else False
 
 if __name__ == "__main__":
     predictioneng = Predictioneng()
-    print(predictioneng.airportsname('ORD'))
+    print(predictioneng.existingoffer('AA', ('ABE', 'ABI')))

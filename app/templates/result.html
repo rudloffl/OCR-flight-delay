@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+   <body>
+   <h1>Flight delay results from: </br> {{ airportsdict[result['ORIGIN']] }} to </br> {{ airportsdict[result['DEST']] }}</br> trip the {{result['DATE']}} at {{'{}h'.format(result['HOUR'])}}.</h1>
+
+    <table border = "1">
+        <tr bgcolor="grey">
+            <td>Carrier</td><td>Predicted delay</td><td>Existing offer</td>
+        </tr>
+        {% for line in table %}
+        <tr>
+            <td>{{ line[0] }}</td><td align = "center">{{ line[1] }}</td><td align = "center">{{ line[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table> 
+   </body>
+</html>
