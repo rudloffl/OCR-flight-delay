@@ -31,7 +31,9 @@ def result():
    if request.method == 'POST':
       result = request.form
       print(result)
-      table = predictioneng.predicttable((result['ORIGIN'], result['DEST']))
+      #return result
+      table = predictioneng.predicttable((result['ORIGIN'], result['DEST']),
+                                         result['DATE'], result['HOUR'])
       return render_template("result.html",table = table, result = result,
                              airportsdict = predictioneng.airportsavail())
    else:
